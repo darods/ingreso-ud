@@ -7,13 +7,11 @@ import pickle
 
 
 # read csv data from different years
-df_2017_2 = pd.read_csv('./data/sistemas_2017-2.csv')
-df_2018_1 = pd.read_csv('./data/sistemas_2018-1.csv')
-df_2020_1 = pd.read_csv('./data/sistemas_2020-1.csv')
+df_2022_1 = pd.read_csv('./data/industrial_2022-1.csv')
 
 
 # combine datasets
-frames = [df_2017_2, df_2018_1, df_2020_1]
+frames = [df_2022_1]
 data = pd.concat(frames)
 
 # clean unnesary categorie
@@ -54,4 +52,4 @@ error = mean_absolute_error(y_valid, y_pred)
 print('Error del modelo: ', error)
 
 # save model
-pickle.dump(model, open('ing_sistemas_model.pkl', 'wb'))
+pickle.dump(model, open('ing_industrial_model.pkl', 'wb'))

@@ -7,13 +7,11 @@ import pickle
 
 
 # read csv data from different years
-df_2017_2 = pd.read_csv('./data/sistemas_2017-2.csv')
-df_2018_1 = pd.read_csv('./data/sistemas_2018-1.csv')
-df_2020_1 = pd.read_csv('./data/sistemas_2020-1.csv')
+df_2022_1 = pd.read_csv('./data/electronica_2022-1.csv')
 
 
 # combine datasets
-frames = [df_2017_2, df_2018_1, df_2020_1]
+frames = [df_2022_1]
 data = pd.concat(frames)
 
 # clean unnesary categorie
@@ -30,8 +28,8 @@ y_num =  lab_encoder.fit_transform(data['RESULTADO'])
 
 
 mapeo = dict(zip(y, y_num))
-print(mapeo)
-print(y_num, lab_encoder.inverse_transform(y_num))
+#print(mapeo)
+#print(y_num, lab_encoder.inverse_transform(y_num))
 
 #define features
 features = ['ICFES', 'PONDERADO']
@@ -46,7 +44,7 @@ model.fit(x_train, y_train)
 y_pred = model.predict(x_valid)
 
 
-print(model.predict(pd.DataFrame({'ICFES': [343.00, 347.00, 355.00], 'PONDERADO': [69.90,68.90,72.70]})))
+#print(model.predict(pd.DataFrame({'ICFES': [343.00, 347.00, 355.00], 'PONDERADO': [69.90,68.90,72.70]})))
 
 # get mean absolute error
 error = mean_absolute_error(y_valid, y_pred)
@@ -54,4 +52,4 @@ error = mean_absolute_error(y_valid, y_pred)
 print('Error del modelo: ', error)
 
 # save model
-pickle.dump(model, open('ing_sistemas_model.pkl', 'wb'))
+pickle.dump(model, open('ing_electronica_model.pkl', 'wb'))

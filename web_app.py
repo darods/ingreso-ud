@@ -64,7 +64,7 @@ if carrera == 'Sistemas':
     # Reads in saved classification model
     load_clf = pickle.load(open('model-building/ing_sistemas_model.pkl', 'rb'))
     with col2:
-        st.metric(label= 'tasa de acierto inteligencia aritficial', value='93.617 %', delta='-7.624 % de error de predicción')
+        st.metric(label= 'tasa de acierto inteligencia artificial', value='93.617 %', delta='-7.624 % de error de predicción')
 
 elif carrera == 'Electrónica':
     df = input_ingenieria_general()

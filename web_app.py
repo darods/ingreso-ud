@@ -80,7 +80,6 @@ elif carrera == 'Industrial':
 
 elif carrera == 'Catastral':
     df = input_catastral()
-    st.write('hola')
     load_clf = pickle.load(open('model-building/ing_catastral_model.pkl', 'rb'))
 
 

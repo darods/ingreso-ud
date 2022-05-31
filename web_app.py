@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
-#st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 # get images
 image_happy = Image.open('img/happy_pepe.png')
@@ -12,7 +12,7 @@ image_confused = Image.open('img/confused_pepe.png')
 image_sad = Image.open('img/sad_pepe.png')
 
 st.title('¿Paso a la Distri?')
-st.write('Aplicación **NO OFICIAL** que predice tus chances de entrar a alguna de las carreras de la **Facultadad de ingeniería (sede la 40)**')
+st.write('Aplicación **NO OFICIAL** que predice tus chances de entrar a alguna de las carreras de la **Facultad de ingeniería (sede la 40)**')
 
 # definir carreras
 carrera = st.selectbox('Seleccione la carrera', ('Sistemas', 'Electrónica', 'Eléctrica', 'Industrial','Catastral'))
@@ -22,8 +22,8 @@ col1, col2 = st.columns((4, 2))
 
 
 
-matematicas = st.sidebar.number_input('Matematicas', 0, 100, 70)
-naturales = st.sidebar.number_input('Ciencias  Naturales', 0, 100, 70)
+matematicas = st.sidebar.number_input('Matematicas', 0, 100, 75)
+naturales = st.sidebar.number_input('Ciencias  Naturales', 0, 100, 75)
 lenguaje = st.sidebar.number_input('Lenguaje', 0, 100, 70)
 ciudadanas = st.sidebar.number_input('Ciencias Ciudadanas', 0, 100, 70)
 ingles = st.sidebar.number_input('Ingles', 0, 100, 70)
@@ -39,6 +39,7 @@ def input_ingenieria_general():
     features = pd.DataFrame(data, index=[0])
     
     st.sidebar.write('## Resultado total ICFES = ', p_icfes)
+    st.sidebar.write('## Resultado de ponderado = ', ponderado)
 
     return features
 
@@ -52,6 +53,7 @@ def input_catastral():
     features = pd.DataFrame(data, index=[0])
     
     st.sidebar.write('## Resultado total ICFES = ', p_icfes)
+    st.sidebar.write('## Resultado de ponderado = ', ponderado)
 
     return features
 
@@ -61,6 +63,8 @@ if carrera == 'Sistemas':
     df = input_ingenieria_general()
     # Reads in saved classification model
     load_clf = pickle.load(open('model-building/ing_sistemas_model.pkl', 'rb'))
+    with col2:
+        st.metric(label= 'tasa de acierto inteligencia aritficial', value='93.617 %', delta='-7.624 % de error de predicción')
 
 elif carrera == 'Electrónica':
     df = input_ingenieria_general()
@@ -89,7 +93,7 @@ if df['ICFES'][0] > 280:
     clasificacion = np.array(['ADMITIDO','NO ADMITIDO','OPCIONADO'])
 
     with col1:
-        st.subheader('Predicción')
+        st.subheader('Resultado de predicción')
         estado_prediccion = str(clasificacion[prediction][0])
         st.title(estado_prediccion)
 
@@ -97,8 +101,8 @@ if df['ICFES'][0] > 280:
             st.image(image_happy, caption='¡CelebrALO CuRRAMbA!')
         elif estado_prediccion == 'OPCIONADO':
             st.image(image_confused, caption='La fé es lo último que se pierde')
-        elif estado_prediccion == 'NO ADMITIDO':
-            st.image(image_sad, caption='¡No te desanimes! Dios le da las peores batallas a sus mejores guerreros')
+        else:
+            st.image(image_sad, caption='¡No te desanimes! Vuélvelo a intentar')
 
 
     with col2:

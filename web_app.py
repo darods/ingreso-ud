@@ -21,30 +21,26 @@ col1, col2 = st.columns((4, 2))
 
 
 
-
-matematicas = st.sidebar.number_input('Matematicas', 0, 100, 75)
+p_icfes = st.sidebar.number_input('ICFES', 0, 500, 350)
+matematicas = st.sidebar.number_input('Matemáticas', 0, 100, 75)
 naturales = st.sidebar.number_input('Ciencias  Naturales', 0, 100, 75)
 lenguaje = st.sidebar.number_input('Lenguaje', 0, 100, 70)
 ciudadanas = st.sidebar.number_input('Ciencias Ciudadanas', 0, 100, 70)
 ingles = st.sidebar.number_input('Ingles', 0, 100, 70)
 
 def input_ingenieria_general():
-
-    p_icfes = matematicas + naturales + lenguaje + ciudadanas + ingles
     # matematicas 35% ciencias 35% lectura 15% sociales 10% ingles 5%
     ponderado = (matematicas*0.35)+(naturales*0.35)+(lenguaje*0.15)+(ciudadanas*0.1)+(ingles*0.05)
     
     data = {'ICFES': p_icfes,
             'PONDERADO': ponderado}
     features = pd.DataFrame(data, index=[0])
-    
-    st.sidebar.write('## Resultado total ICFES = ', p_icfes)
-    st.sidebar.write('## Resultado de ponderado = ', ponderado)
+    st.sidebar.write('## Resultado de ponderado = ', round(ponderado, 3))
 
     return features
 
 def input_catastral():
-    p_icfes = matematicas + naturales + lenguaje + ciudadanas + ingles
+
     # matematicas 35% ciencias 35% lectura 15% sociales 10% ingles 5%
     ponderado = (matematicas*0.35)+(naturales*0.30)+(lenguaje*0.15)+(ciudadanas*0.15)+(ingles*0.05)
     
@@ -52,8 +48,7 @@ def input_catastral():
             'PONDERADO': ponderado}
     features = pd.DataFrame(data, index=[0])
     
-    st.sidebar.write('## Resultado total ICFES = ', p_icfes)
-    st.sidebar.write('## Resultado de ponderado = ', ponderado)
+    st.sidebar.write('## Resultado de ponderado = ', round(ponderado, 3))
 
     return features
 

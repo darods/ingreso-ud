@@ -65,32 +65,32 @@ if carrera == 'Sistemas':
     # Reads in saved classification model
     load_clf = pickle.load(open('model-building/ing_sistemas_model.pkl', 'rb'))
     with col2:
-        st.metric(label= 'tasa de acierto inteligencia artificial', value='93.617 %', delta='-7.624 % de error de predicción')
+        st.metric(label= 'tasa de acierto inteligencia artificial', value='93.44 %', delta='-7.8 % de error de predicción')
 
 elif carrera == 'Electrónica':
     df = input_ingenieria_general()
     load_clf = pickle.load(open('model-building/ing_electronica_model.pkl', 'rb'))
     with col2:
-        st.metric(label= 'tasa de acierto inteligencia artificial', value='81.373 %', delta='-21.078 % de error de predicción')
+        st.metric(label= 'tasa de acierto inteligencia artificial', value='82.35 %', delta='-19.12 % de error de predicción')
 
 elif carrera == 'Eléctrica':
     df = input_ingenieria_general()
     load_clf = pickle.load(open('model-building/ing_electrica_model.pkl', 'rb'))
     with col2:
-        st.metric(label= 'tasa de acierto inteligencia artificial', value='77.778 %', delta='-31.944 % de error de predicción')
+        st.metric(label= 'tasa de acierto inteligencia artificial', value='73.61 %', delta='-33.33 % de error de predicción')
 
 elif carrera == 'Industrial':
     df = input_ingenieria_general()
     load_clf = pickle.load(open('model-building/ing_industrial_model.pkl', 'rb'))
     with col2:
-        st.metric(label= 'tasa de acierto inteligencia artificial', value='89.595 %', delta='-12.717 % de error de predicción')
+        st.metric(label= 'tasa de acierto inteligencia artificial', value='89.88 %', delta='-12.43 % de error de predicción')
 
 
 elif carrera == 'Catastral':
     df = input_catastral()
     load_clf = pickle.load(open('model-building/ing_catastral_model.pkl', 'rb'))
     with col2:
-        st.metric(label= 'tasa de acierto inteligencia artificial', value='74.747 %', delta='-31.313 % de error de predicción')
+        st.metric(label= 'tasa de acierto inteligencia artificial', value='76.77 %', delta='-29.29 % de error de predicción')
 
 
 

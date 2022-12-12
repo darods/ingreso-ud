@@ -1,2 +1,12 @@
 data/
 mongo-con-test.py
+listas_admitidos/
+*.pdf
+iris-web.py
+read-tables.ipynb
+*.csv
+read_addmision_document.py
+*.ows
+data_inspection.py
+extract-tables.py
+sistemas_prediccion_webapp.py

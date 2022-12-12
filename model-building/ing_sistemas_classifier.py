@@ -101,4 +101,4 @@ print('Support Vector Classifier: ', accuaracySVC)
 
 
 # save model
-#pickle.dump(model, open('ing_sistemas_model.pkl', 'wb'))
+pickle.dump(modelRF, open('ing_sistemas_model.pkl', 'wb'))

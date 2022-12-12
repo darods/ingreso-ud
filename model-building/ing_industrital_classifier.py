@@ -89,4 +89,4 @@ print('Decision Tree Classifier: ', accuaracyDT)
 print('Support Vector Classifier: ', accuaracySVC)
 
 # save model
-#pickle.dump(model, open('ing_industrial_model.pkl', 'wb'))
+pickle.dump(modelRF, open('ing_industrial_model.pkl', 'wb'))

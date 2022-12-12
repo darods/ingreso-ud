@@ -95,4 +95,4 @@ print('Support Vector Classifier: ', accuaracySVC)
 
 
 # save model
-#pickle.dump(model, open('ing_catastral_model.pkl', 'wb'))
+pickle.dump(modelKN, open('ing_catastral_model.pkl', 'wb'))

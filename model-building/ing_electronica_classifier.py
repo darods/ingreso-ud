@@ -90,4 +90,4 @@ print('Support Vector Classifier: ', accuaracySVC)
 
 
 # save model
-#pickle.dump(model, open('ing_electronica_model.pkl', 'wb'))
+pickle.dump(modelSVC, open('ing_electronica_model.pkl', 'wb'))
